@@ -5,6 +5,10 @@
   in this class, etype means Example TYPE
 */
 #include <cstdlib>  //This is for the exit command.
+#include <queue>
+#include <iostream>
+
+using namespace std;
 
 
 /*
@@ -19,10 +23,13 @@
 template <class etype>
 class QueueArray
 {
+
   public:
     QueueArray(int);
-    ~QueueArray();
-    int Asize(); 
+  ~QueueArray(){ delete [] array;};
+    int Asize(){
+    return sizeof(array);
+}; 
     etype Dequeue();
     int Enqueue(const etype &item,const int index);
     int QAsize(); 
@@ -31,14 +38,14 @@ class QueueArray
 
   private:
     int size;      //size of the array
-    queue<etype>* array;   //the array of queues.  It must be an array (NO not a vector)
+    queue<etype>* array;   //the array of queues.  It must be an array (not a vector)
     int totalItems; //total number of items stored in the queues
 };
 
 //Constructor for the queue array.  It sets the default size
 //to 10, initializes the private variables size and totalItems
 template <class etype>
-QueueArray<etype>::QueueArray(int sz = 10):size(sz),totalItems(0)
+QueueArray<etype>::QueueArray(int sz):size(sz),totalItems(0)
 {
   array = new queue<etype>[size];
   if( array == NULL)
@@ -47,4 +54,7 @@ QueueArray<etype>::QueueArray(int sz = 10):size(sz),totalItems(0)
     exit(-1);
   }
 }
+
+
+//QueueArray::~QueueArray(){ delete [] array; }
 
