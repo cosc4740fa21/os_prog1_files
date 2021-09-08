@@ -13,7 +13,7 @@ using namespace std;
 int main()
 {
   QueueArray <int> qai(5);
-  QueueArray <char> qac(8);
+  QueueArray <char> qac(9);
   int i, r, *ibuf, ielem;
   char *cbuf, celem;
 
@@ -28,7 +28,7 @@ int main()
     r = qai.Enqueue(i, 0);
     cout << "Return value is " << r << endl;
   }
-  r = qai.Enqueue(10, 10);
+  r = qac.Enqueue('a', 10);
   cout << "Return value is " << r << endl;
   for (i = 0; i < 8; i++) qai.Enqueue(7, 2);
   for (i = 0; i < 2; i++) qai.Enqueue(10, 4);
