@@ -10,6 +10,9 @@
 */
 #include <cstdlib>  //This is for the exit command.
 
+#include <iostream>
+using namespace std;
+
 
 /*
  *  In the class below, it declares a "queue<T>" array.     
